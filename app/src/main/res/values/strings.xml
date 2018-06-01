@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">TV Series Alerts</string>]
+
+    <!--Empty Activity-->
+    <string name="empty_view_title_text">There are no TV series in the list.</string>
+    <string name="empty_view_subtitle_text">Please add series using the add button.</string>
+
+    <!--Add series activity-->
+    <string name="series_name">Name:</string>
+    <string name="imdb_id">IMDB ID:</string>
+    <string name="series_name_hint">name</string>
+    <string name="imdb_id_hint">tt1234567</string>
+
+    <!--main menu categories-->
+    <string name="action_delete_all_entries">Delete all</string>
+
+    <!--add series menu categories-->
+    <string name="action_save">Save</string>
+
+    <!--add series toasts messages-->
+    <string name="error_data_missing">Must insert series name or IMDB Id</string>
+    <string name="insert_successful">Series added</string>
+    <string name="insert_failed">Error with adding the series</string>
+
+    <!-- Dialog message for unsaved changes -->
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+    <string name="discard">Discard</string>
+    <string name="keep_editing">Keep Editing</string>
+
+    <!-- Toast message indicating deletion status -->
+    <string name="delete_successful">Series deleted</string>
+    <string name="delete_failed">Error with deletion</string>
+
+    <!-- Error toast message -->
+    <string name="error_finding_series">Series was not found</string>
+    <string name="error_get_series_data">An error in retrieving series data</string>
+    <string name="error_updating_seen">Error in updating seen status</string>
+
+    <!--deletion conformation dialog-->
+    <string name="delete_dialog_msg">Are you sure you want to delete this series?</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+
+
+</resources>
