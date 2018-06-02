@@ -121,6 +121,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             case R.id.action_delete_all_entries:
                 deleteAllSeries();
                 return true;
+            case R.id.help:
+                Intent intent = new Intent(MainActivity.this, HelpActivity.class);
+                startActivity(intent);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

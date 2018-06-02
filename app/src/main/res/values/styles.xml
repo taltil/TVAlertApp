@@ -46,4 +46,23 @@
         <item name="android:textColor">@color/textColorSecondary</item>
     </style>
 
+    <!--style for help label in help activity-->
+    <style name="helpLabelActivity">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textAppearance">?android:textAppearanceLarge</item>
+        <item name="android:textColor">@color/textColorSecondary</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <!--style for help text in help activity-->
+    <style name="helpTextActivity">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textAppearance">?android:textAppearanceMedium</item>
+        <item name="android:textColor">@color/textColorSecondary</item>
+    </style>
 </resources>

@@ -32,7 +32,7 @@ public class ModelResolver {
         List<SeriesDatum> seriesDatum = APIManger.fetchSeriesDatum(name, imdbId, activity);
         String seriesName = null;
         long seriesId = 0;
-        if (seriesDatum == null) {
+        if (seriesDatum == null || seriesDatum.size() == 0) {
             series = null;
         } else if (seriesDatum.size() == 1) {
             seriesName = seriesDatum.get(0).getSeriesName();
@@ -74,7 +74,7 @@ public class ModelResolver {
         for (int i = 0; i < episodes.size(); i++) {
             try {
                 currentEpisode = episodes.get(i);
-                if (currentEpisode.getFirstAired().length() > 0) {
+                if (currentEpisode.getFirstAired().length() > 0 && currentEpisode.getAiredSeason() != 0) {
                     currentDate = dateFormat.parse(currentEpisode.getFirstAired());
                     if (currentDate.compareTo(today) < 0) {
                         if (lastEpisode == null) {

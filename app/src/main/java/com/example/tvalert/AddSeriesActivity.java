@@ -137,8 +137,6 @@ public class AddSeriesActivity extends AppCompatActivity {
     private void addSeriesFeedback(Uri uri) {
         if (uri != null) {
             Toast.makeText(this, getString(R.string.insert_successful), Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, getString(R.string.insert_failed), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -159,7 +157,11 @@ public class AddSeriesActivity extends AppCompatActivity {
             try {
                 SeriesModel newSeries = ModelResolver.fetchSeriesData(data[0], data[1], activity);
                 if (newSeries == null) {
-                    Toast.makeText(activity, getString(R.string.error_finding_series), Toast.LENGTH_SHORT).show();
+                    activity.runOnUiThread(new Runnable() {
+                        public void run() {
+                            Toast.makeText(activity, getString(R.string.error_finding_series), Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 } else {
                     ContentValues values = new ContentValues();
                     values.put(SeriesEntry.COLUMN_SERIES_NAME, newSeries.getSeriesName());
@@ -169,12 +171,16 @@ public class AddSeriesActivity extends AppCompatActivity {
                     values.put(SeriesEntry.COLUMN_LAST_EPISODE_DATE, newSeries.getLastEpisodeDate());
                     values.put(SeriesEntry.COLUMN_LAST_EPISODE_SEEN, newSeries.getLastEpisodeSeen());
                     newUri = getContentResolver().insert(SeriesEntry.CONTENT_URI, values);
+                    activity.finish();
                 }
             } catch (Exception e) {
                 Log.e(LOG_TAG, "Problem with finding the series.", e);
+                activity.runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toast.makeText(activity, getString(R.string.insert_failed), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
-            activity.finish();
-
             return newUri;
         }
 
