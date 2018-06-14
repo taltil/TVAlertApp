@@ -2,6 +2,7 @@ package com.example.tvalert.adapter;
 
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +35,7 @@ public class TVCursorAdapter extends CursorAdapter {
 
         String name = cursor.getString(cursor.getColumnIndexOrThrow(SeriesEntry.COLUMN_SERIES_NAME));
         int seriesNumber = cursor.getInt(cursor.getColumnIndexOrThrow(SeriesEntry.COLUMN_SEASON));
-        String episodeNumber = cursor.getString(cursor.getColumnIndexOrThrow(SeriesEntry.COLUMN_COLUMN_LAST_EPISODE_NUMBER));
+        int episodeNumber = cursor.getInt(cursor.getColumnIndexOrThrow(SeriesEntry.COLUMN_COLUMN_LAST_EPISODE_NUMBER));
         String episodeDate = cursor.getString(cursor.getColumnIndexOrThrow(SeriesEntry.COLUMN_LAST_EPISODE_DATE));
         int isLastEpisodeSeen = cursor.getInt(cursor.getColumnIndexOrThrow(SeriesEntry.COLUMN_LAST_EPISODE_SEEN));
 
@@ -42,9 +43,10 @@ public class TVCursorAdapter extends CursorAdapter {
 
         holder.name.setText(name);
         if (episodeDate != null) {
-            holder.season.setText("Season " + seriesNumber);
-            holder.episodeNumber.setText("Episode No. " + episodeNumber);
-            holder.episodeDate.setText("Date: " + episodeDate);
+            Resources res = context.getResources();
+            holder.season.setText(String.format(res.getString(R.string.list_item_season), seriesNumber));
+            holder.episodeNumber.setText(String.format(res.getString(R.string.list_item_episode_num), episodeNumber));
+            holder.episodeDate.setText(String.format(res.getString(R.string.list_item_date), episodeDate));
         }
     }
 

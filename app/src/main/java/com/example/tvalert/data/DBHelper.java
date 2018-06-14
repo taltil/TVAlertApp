@@ -22,7 +22,7 @@ public class DBHelper extends SQLiteOpenHelper {
         String SQL_CREATE_TABLE = "CREATE TABLE " + SeriesEntry.TABLE_NAME + "("
                 + SeriesEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + SeriesEntry.COLUMN_SERIES_NAME + " TEXT NOT NULL, "
-                + SeriesEntry.COLUMN_SERIES_ID + " INT NOT NULL, "
+                + SeriesEntry.COLUMN_SERIES_ID + " INT NOT NULL UNIQUE, "
                 + SeriesEntry.COLUMN_SEASON + " INT, "
                 + SeriesEntry.COLUMN_LAST_EPISODE_DATE + " DATE, "
                 + SeriesEntry.COLUMN_COLUMN_LAST_EPISODE_NUMBER + " INT, "
@@ -34,7 +34,6 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
-
 }
 
 

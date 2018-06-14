@@ -47,8 +47,12 @@
     <string name="help_seen_label">Update seen status</string>
     <string name="help_add_series">To add a new series, click the plus button and insert a series name or an IMDB ID.
         This ID can be found on the series IMDB Url: https://www.imdb.com/title/tt1234567/</string>
-    <string name="help_seen">An episode that has not seen yet
-        will be marked in grey. Short tapping on the series will change its seen status. Long tapping will delete the series. When a new episode is out the background will change automatically to grey. 
+    <string name="help_seen">An episode that has not been seen yet
+        will be marked in grey. A short tapping on the series will change its seen status. Long tapping will delete the series. When a new episode is out the background will change automatically to grey. 
     </string>
 
+    <!--list item strings-->
+    <string name="list_item_season">Season %1$d</string>
+    <string name="list_item_episode_num">Episode No. %1$d</string>
+    <string name="list_item_date">Air Date: %1$s</string>
 </resources>
